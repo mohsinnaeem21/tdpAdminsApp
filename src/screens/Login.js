@@ -28,13 +28,7 @@ export default class Login extends Component {
   }
 
   login() {
-    // console.log();
     this.submit();
-    // this.submit().then(result => {
-    //   this.notifyMessage(result.data.msg);
-    // });
-    //this.notifyMessage(loginResponse.msg);
-    // console.log(loginResponse);
   }
 
   notifyMessage(msg: string) {
@@ -64,6 +58,7 @@ export default class Login extends Component {
     const status = await res.data.status;
     if (status === true) {
       this.notifyMessage(res.data.msg);
+      this.props.navigation.navigate('AppStack');
     } else {
       this.notifyMessage(res.data.msg);
     }

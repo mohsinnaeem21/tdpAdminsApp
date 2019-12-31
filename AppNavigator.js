@@ -1,17 +1,27 @@
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
+
+import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
-import {createAppContainer} from 'react-navigation';
 import Login from './src/screens/Login';
 import Dashboard from './src/screens/Dashboard';
 
-const AppNavigator = createStackNavigator({
-    Login: {
-        screen: Login,
-    },
-    Dashboard: {
-        screen: Dashboard
-    },
+const DrawerStack = createDrawerNavigator({
+  Dashboard: {
+    screen: Dashboard,
+  },
+  Abc: {
+    screen: Dashboard,
+  },
 });
 
-const AppNav = createAppContainer(AppNavigator);
+const AppNav = createSwitchNavigator(
+  {
+    AuthLoading: Login,
+    AppStack: DrawerStack,
+  },
+  {
+    initialRouteName: 'AuthLoading',
+  },
+);
 
-export default AppNav;
+export default createAppContainer(AppNav);

@@ -7,18 +7,10 @@
  */
 
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  StatusBar
-} from 'react-native';
 
 import AppNav from './AppNavigator';
 const App: () => React$Node = () => {
-  return ( 
-    <AppNav />
-  );
+  return <AppNav />;
 };
 
 export default App;
